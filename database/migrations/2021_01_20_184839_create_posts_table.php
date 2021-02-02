@@ -17,8 +17,8 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug');
-            $table->text('extract');
-            $table->longtext('body');
+            $table->text('extract')->nullable();
+            $table->longtext('body')->nullable();
             $table->enum('status',[1,2])->default(1);
 
             $table->unsignedBigInteger('user_id');
@@ -26,8 +26,6 @@ class CreatePostsTable extends Migration
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
-
-
 
             $table->timestamps();
         });

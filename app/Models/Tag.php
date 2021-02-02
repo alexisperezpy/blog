@@ -9,6 +9,7 @@ class Tag extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name', 'slug','color'];
     /* Relación muchos a muchos */
     public function posts(){
         return $this->belongsToMany(Post::class);

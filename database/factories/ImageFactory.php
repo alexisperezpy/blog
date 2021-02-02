@@ -23,7 +23,7 @@ class ImageFactory extends Factory
     {
 
         return [
-            'url'=> 'posts/' . $this->faker->image('public/storage/posts',640,480,null,false),
+            'url'=> $this->faker->image('public/storage/posts',640,480,null,false),
         ];
     }
 }
