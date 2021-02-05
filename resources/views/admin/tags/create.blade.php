@@ -3,7 +3,7 @@
 @section('title', 'Categoria')
 
 @section('content_header')
-    <h1 class="text-center text-uppercase">Crer nueva Etiqueta</h1>
+    <h1 class="text-center text-uppercase">Crear nueva Etiqueta</h1>
 @stop
 
 @section('content')

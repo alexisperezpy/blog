@@ -247,18 +247,21 @@ return [
             'text' => 'Posts',
             'route'  => 'admin.posts.index',
             'icon' => 'fas fa-fw fa-newspaper',
+            'active' => ['admin/posts*'],
         ],
 
         [
             'text' => 'Categorias',
             'route'  => 'admin.categories.index',
             'icon' => 'fab fa-fw fa-buffer',
+            'active' => ['admin/categories*'],
         ],
 
         [
             'text' => 'Tags',
             'route'  => 'admin.tags.index',
             'icon' => 'fas fa-fw fa-tag',
+            'active' => ['admin/tags*'],
         ],
 
         [

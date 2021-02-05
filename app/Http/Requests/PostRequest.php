@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StorePostRequest extends FormRequest
+class PostRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -15,11 +15,12 @@ class StorePostRequest extends FormRequest
     {
         // Compruebo si cualquier user_id que se pasa por el formulario coincide con el del usuario logeado
         // Entonces e permito la verificacion de las reglas y enviar el formulario
-        if ($this->user_id == auth()->user()->id) {
-            return true;
-        } else {
-            return false;
-        }
+        return true;
+        // if ($this->user_id == auth()->user()->id) {
+        //     return true;
+        // } else {
+        //     return false;
+        // }
     }
 
     /**
@@ -29,20 +30,25 @@ class StorePostRequest extends FormRequest
      */
     public function rules()
     {
+        $post = $this->route()->parameter('post');
+        
         $rules=[
-            'name'=>'required',
+            'name'=>'required|min:10',
             'slug'=>'required|unique:posts',
             'status'=>'required|in:1,2',
             'file'=> 'image'
-
         ];
         
+        if($post){
+            $rules['slug'] = 'required|unique:posts,slug,'. $post->id;
+        }
+
         if($this->status==2){
             $rules = array_merge($rules,[
                 'category_id'=>'required',
                 'tags'=>'required',
-                'extract'=>'required',
-                'body'=>'required'
+                'extract'=>'required|min:10',
+                'body'=>'required|min:30'
             ]);
         }
         

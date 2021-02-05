@@ -11,7 +11,7 @@
 
                 <div class="form-group">
                     {!! Form::label('slug', 'Slug') !!}
-                    {!! Form::text('slug', null, ['class'=>'form-control']) !!}
+                    {!! Form::text('slug', null, ['class'=>'form-control', 'readonly', 'placeholder' => 'El slug del post se crea automáticamente al escribir el nombre']) !!}
                     
                     @error('slug')
                        <span class="text-danger">{{ $message }} </span>

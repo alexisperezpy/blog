@@ -11,6 +11,11 @@ class Category extends Model
 
     protected $fillable = ['name', 'slug'];
 
+    //* mostrar el slugen la barra de direcciones en vez del id del registro
+    public function getRouteKeyName(){ 
+        return "slug";
+    }
+
     /* Relación uno a muchos */
     public function posts()
     {

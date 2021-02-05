@@ -5,7 +5,7 @@
            <x-card-post :item="$item"/>       
         @endforeach
 
-        <div class="mt-4">
+        <div>
             {{ $postscategory->links() }}
         </div>
     </div>

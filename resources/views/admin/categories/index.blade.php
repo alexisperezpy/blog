@@ -56,7 +56,7 @@
                                     </a>
                                 </td>
                                 <td width="10px">
-                                    <form action={{ route('admin.categories.destroy',$category) }} method="POST">
+                                    <form action={{ route('admin.categories.destroy',$category) }} method="POST" class="deletereg">
                                         @csrf
                                         @method('delete')
 
@@ -69,12 +69,48 @@
                             </tr>
                         @endforeach
                     </tbody>    
-                </table>
-                
-                  {{ $categories->links() }}
-                  
-                
+                </table>               
             @endif
         </div>
-    </div>    
+            {{ $categories->links() }}
+      </div>    
+@stop
+
+@section('js')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    
+        @if (session('eliminado')=='ok')
+            <script>
+                Swal.fire(
+                    'Eliminado!!',
+                    'El registro fue eliminado con éxito.',
+                    'success'
+                )
+            </script>
+        @endif
+    
+    <script> 
+
+        $('.deletereg').submit(function(e){
+            e.preventDefault();
+
+            Swal.fire({
+            title: 'Estás seguro?',
+            text: "Esto no podrá ser revertido!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, Eliminar!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                
+                    this.submit();
+                    
+                }
+            })
+
+        });
+        
+    </script>
 @stop

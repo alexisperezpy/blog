@@ -9,6 +9,7 @@ use Livewire\WithPagination;
 class PostIndex extends Component
 {
     use WithPagination;
+
     protected $paginationTheme = "bootstrap";
 
     public $search;
@@ -22,7 +23,7 @@ class PostIndex extends Component
     {
         $posts = Post::where('user_id', auth()->user()->id)
                     ->where('name','LIKE','%'.$this->search.'%')
-                    ->latest('id')->paginate();
+                    ->latest('id')->paginate(10);
     
         return view('livewire.admin.post-index',compact('posts'));
     }

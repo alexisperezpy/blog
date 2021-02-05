@@ -11,6 +11,7 @@ class Post extends Model
 
     protected $guarded = ['id','created_add','updated_at'];
 
+
     /* Relación uno a muchos inversa */
     public function user(){
         return $this->belongsTo(User::class);

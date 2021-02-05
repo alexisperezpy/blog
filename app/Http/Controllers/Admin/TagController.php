@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class TagController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +16,7 @@ class TagController extends Controller
      */
     public function index()
     {
-        $tags = Tag::paginate(10);
+        $tags = Tag::orderBy('name', 'asc')->paginate(10);
         return view('admin.tags.index',compact('tags'));
     }
 
@@ -93,9 +94,17 @@ class TagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $tag)
+    public function update(Request $request,Tag $tag)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'slug' => "required|unique:tags,slug,$tag->id",
+            'color' => 'required'
+        ]);
+
+        $tag->update($request->all());
+
+        return redirect()->route('admin.tags.index',$tag)->with('info','Le etiqueta se actualizó con éxito');
     }
 
     /**
@@ -106,6 +115,7 @@ class TagController extends Controller
      */
     public function destroy(Tag $tag)
     {
-        //
+        $tag->delete();
+        return redirect()->route('admin.tags.index')->with('eliminado', 'ok');
     }
 }

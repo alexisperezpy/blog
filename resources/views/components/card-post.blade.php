@@ -2,7 +2,7 @@
 
 <article class="mb-8 bg-white shadow-xl rounded-lg overflow-hidden">
     @if($item->image)
-        <img class="w-full h-80 object-cover object-center" src="{{ asset('storage/posts/' . $item->image->url) }}">
+        <img class="w-full h-80 object-cover object-center" src="{{Storage::url($item->image->url)}}">
     @else
         <img class=" w-full h-72 object-cover object-center" src="https://cdn.pixabay.com/photo/2016/10/22/17/46/mountains-1761292_960_720.jpg " alt="">
     @endif
@@ -12,7 +12,7 @@
             <a href="{{ route('posts.show',$item) }}">{{ $item->name }}</a>
         </h1>
         <div class="text-base text-gray-700">
-            {{ $item->extract }}
+            {!! $item->extract !!}
         </div>
     </div>
 
