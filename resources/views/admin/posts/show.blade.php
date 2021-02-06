@@ -8,7 +8,6 @@
 
 @section('content')
     
-
     <div class="container py-8 px-6">
         <h1 class="text-2xl text-gray-700 ">{{ $post->name }}</h1>
         <div class="text-lg text-gray-400 mb-2 text-justify">
@@ -29,27 +28,6 @@
                     {!! $post->body !!}
                 </div>
             </div>
-
-
-            {{-- Contenido relacionado --}}
-            {{-- <aside>
-                <h1 class="text-2x1 font-bold mb-2 text-center text-gray-600">Más en la Categoria {{ $post->category->name }}</h1>
-                <ul>
-                    @foreach ($similares as $similar)
-                        <li class="mb-4">
-                            <a class="flex " href="{{ route('posts.show',$similar) }}">
-                                @if ($similar->image)
-                                    <img class="w-36 h-20 object-cover object-center" src="{{Storage::url($similar->image->url)}}">
-                                @else
-                                    <img class="w-36 h-20 object-cover object-center" src="https://cdn.pixabay.com/photo/2016/10/22/17/46/mountains-1761292_960_720.jpg">
-                                @endif
-                                
-                                <span class="ml-2 text-gray-600" >{{ $similar->name }} </span>
-                            </a>
-                        </li>
-                    @endforeach
-                </ul>
-            </aside> --}}
         </div>
     </div>
 

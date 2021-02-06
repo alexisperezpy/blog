@@ -237,37 +237,44 @@ return [
         ],
         [
             'text'        => 'Dashboard',
-            'url'         => 'admin',
+            'url'         => '/admin',
             'icon'        => 'fas fa-fw fa-tachometer-alt',
             // 'label'       => 4,
             // 'label_color' => 'success',
         ],
-        ['header' => 'ADMINISTRADOR'],
+
+        ['Header' => 'ADMINISTRADOR'],
+
         [
             'text' => 'Posts',
             'route'  => 'admin.posts.index',
             'icon' => 'fas fa-fw fa-newspaper',
+            'icon_color' => 'cyan',
             'active' => ['admin/posts*'],
         ],
-
+        
         [
             'text' => 'Categorias',
             'route'  => 'admin.categories.index',
             'icon' => 'fab fa-fw fa-buffer',
+            'icon_color' => 'pink',
             'active' => ['admin/categories*'],
         ],
-
+        
         [
             'text' => 'Tags',
             'route'  => 'admin.tags.index',
             'icon' => 'fas fa-fw fa-tag',
+            'icon_color' => 'yellow',
             'active' => ['admin/tags*'],
         ],
-
+        
         [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
+            // 'text' => 'change_password',
+            'text' => 'Cambiar Perfil',
+            'url'  => 'user/profile',
             'icon' => 'fas fa-fw fa-lock',
+            'icon_color' => 'red',
         ],
 
         // [

@@ -29,7 +29,7 @@
                         <tr>
                             <th>#</th>
                             <th>Nombres</th>
-                            <th class="text-center" colspan="3">Acciones</th>
+                            <th class="text-center" colspan="2">Acciones</th>
                         </tr>
                     </thead>
 
@@ -45,11 +45,11 @@
                                     </a>
                                     
                                 </td>    
-                                <td width="10px">
+                                {{-- <td width="10px">
                                     <a class="btn btn-primary" href="{{ route('admin.tags.show',$tag) }}">
                                         <i class="far fa-eye"></i>
                                     </a>
-                                </td>
+                                </td> --}}
                                 <td width="10px">
                                     <a class="btn btn-warning" href="{{ route('admin.tags.edit',$tag) }}">
                                         <i class="far fa-edit"></i>
