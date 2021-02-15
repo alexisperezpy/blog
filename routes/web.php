@@ -18,6 +18,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/admin', function () {
     return view('admin');
 })->name('admin');
 
-Route::get('storage-link', function(){
+Route::get('/storage-link', function(){
     Artisan::call('storage:link');
 });
