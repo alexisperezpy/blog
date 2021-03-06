@@ -72,7 +72,7 @@
                 </table>               
             @endif
         </div>
-         <div class="mt-4">
+         <div class="mt-4 ml-4">
            {{ $tags->links() }} 
         </div>
     </div>    

@@ -71,7 +71,7 @@
                     </tbody>    
                 </table>               
             @endif
-        </div>
+        </div clas="mt-4 ml-4">
             {{ $categories->links() }}
       </div>    
 @stop

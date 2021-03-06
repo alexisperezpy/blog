@@ -15,7 +15,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::OrderBy('name','asc')->paginate(8);
+        $categories = Category::OrderBy('name','asc')->paginate(10);
        
         return view('admin.categories.index', compact('categories'));
     }
@@ -56,6 +56,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
+       
         return view('admin.categories.show', compact('category'));
     }
 

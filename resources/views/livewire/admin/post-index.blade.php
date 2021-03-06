@@ -63,7 +63,7 @@
                     </tbody>    
                 </table>
             </div> 
-                <div class="card-footer mt-4">
+                <div class="mt-4 ml-4">
                     {{$posts->links()}}
                 </div>             
         @endif

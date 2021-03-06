@@ -19,8 +19,7 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        
+    {   
         return view('admin.posts.index');
     }
 
@@ -59,9 +58,8 @@ class PostController extends Controller
             $url=Storage::put('posts', $request->file('file'));
 
                 //al usar create para guardar la imagen en la tabla imagen se habilita asignacion masiva
-            $post->image()->create([
-                'url'=>$url
-            ]);
+                $post->image()->create([
+                'url'=>$url]);
         }
         return redirect()->route('admin.posts.index');
     }

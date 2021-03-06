@@ -11,14 +11,14 @@
         <h1 class="font-bold text-xl mb-2">
             <a href="{{ route('posts.show',$item) }}">{{ $item->name }}</a>
         </h1>
-        <div class="text-base text-gray-700">
+        <div class="text-base text-gray-800">
             {!! $item->extract !!}
         </div>
     </div>
 
     <div class="px-6 pt-4 pb-2">
         @foreach ($item->tags as $tag)
-            <a href="{{ route('posts.tag',$tag) }}" class="inline-block bg-gray-400 rounded-full py-1 px-2 text-sm text-gray-700 mr-2">{{ $tag->name }}</a>
+            <a href="{{ route('posts.tag',$tag) }}" class="inline-block bg-{{ $tag->color }}-300 rounded-full py-1 px-2 text-sm mr-2">{{ $tag->name }}</a>
         @endforeach
     </div>
 </article>          

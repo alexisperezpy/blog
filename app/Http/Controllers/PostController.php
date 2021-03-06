@@ -94,6 +94,7 @@ class PostController extends Controller
 
     public function category(Category $category)
     {
+        
         $postscategory = Post::where('category_id', $category->id)
             ->where('status', 2)
             ->latest('id')
@@ -103,7 +104,19 @@ class PostController extends Controller
 
 
     public function tag(Tag $tag){
+        $colors = [
+            'red' => 'Color Rojo',
+            'blue' => 'Color Azul',
+            'yellow' => 'Color Amarillo',
+            'indigo' => 'Color Indigo',
+            'pink' => 'Color Rosado',
+            'purple' => 'Color Morado',
+            'grey' => 'Color Gris',
+            'green' => 'Color Verde',
+            'orange' => 'Color Naranja',
+            'brown' => 'Color Marrón'
+        ];
         $poststag = $tag->posts()->where('status',2)->latest('id')->paginate(5);
-        return view('posts.tag',compact('poststag','tag'));
+        return view('posts.tag',compact('poststag','tag', 'colors'));
     }
 }

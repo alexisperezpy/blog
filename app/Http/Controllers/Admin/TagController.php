@@ -33,7 +33,12 @@ class TagController extends Controller
            'yellow' => 'Color Amarillo', 
            'indigo' => 'Color Indigo', 
            'pink' => 'Color Rosado',
-           'purple' => 'Color Morado'
+           'purple' => 'Color Morado',
+           'grey' => 'Color Gris',
+           'green' => 'Color Verde',
+           'orange' => 'Color Naranja',
+           'brown' => 'Color Marrón'
+
         ];
 
         return view('admin.tags.create', compact('colors'));
@@ -82,7 +87,11 @@ class TagController extends Controller
             'yellow' => 'Color Amarillo',
             'indigo' => 'Color Indigo',
             'pink' => 'Color Rosado',
-            'purple' => 'Color Morado'
+            'purple' => 'Color Morado',
+            'grey' => 'Color Gris',
+            'green' => 'Color Verde',
+            'orange' => 'Color Naranja',
+            'brown' => 'Color Marrón'
         ];
         return view('admin.tags.edit', compact('colors','tag'));
     }
